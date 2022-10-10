@@ -1,0 +1,27 @@
+class Solution {
+    public String breakPalindrome(String p) {
+        int l = p.length();
+        if(l==1) {
+            return "";
+        }
+        char a = 'a';
+        char[] c = p.toCharArray();
+        boolean loop = true;
+        while (loop) {
+            for(int i=0;i<l/2;i++) {
+                if(c[i]>a ){
+                    c[i]=a;
+                    loop=false;
+                    break;
+                } else if(c[i]!=a) {
+                    c[l-i-1]=a;
+                    loop=false;
+                    break;
+                }
+            }
+            
+            a++;
+        }
+        return new String(c);
+    }
+}
